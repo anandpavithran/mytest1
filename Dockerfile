@@ -11,5 +11,6 @@ RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 RUN chgrp -R 0 /var/log/httpd /var/run/httpd /var/www/html && \ 
     chmod -R g=u /var/log/httpd /var/run/httpd /var/www/html
 USER 1001
+EXPOSE 8080
 CMD bash -c "/usr/sbin/httpd -DFOREGROUND"
 
