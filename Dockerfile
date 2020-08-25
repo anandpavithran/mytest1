@@ -4,7 +4,7 @@ LABEL "Demo of webserver"
 ENV "VAR1=apple"
 ENV "VAR2=grape"
 #RUN yum install -y --no-docs --disableplugin=subscription-manager httpd
-RUN yum install -y httpd
+RUN yum install -y httpd iputils bind-utils
 #RUN yum clean all --disableplugin=subscription-manager -y
 ADD index.html /var/www/html/
 RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
