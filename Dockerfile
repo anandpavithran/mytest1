@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/ubi8/ubi:8.0
 MAINTAINER ANANDPAVITHRAN <apavithr@redhat.com>
-LABEL "Demo of webserver"
+LABEL "Demo of webserver1"
 ENV "VAR1=apple"
 ENV "VAR2=grape"
 #RUN yum install -y --no-docs --disableplugin=subscription-manager httpd
@@ -10,7 +10,7 @@ ADD index.html /var/www/html/
 RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 RUN chgrp -R 0 /var/log/httpd /var/run/httpd /var/www/html && \ 
     chmod -R g=u /var/log/httpd /var/run/httpd /var/www/html
-USER 1001
+USER 1002
 EXPOSE 8080
 CMD bash -c "/usr/sbin/httpd -DFOREGROUND"
 
