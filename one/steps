@@ -1,0 +1,10 @@
+podman build -t arg-demo:default .
+podman run --rm arg-demo:default
+(Notice APP_VERSION used its default 1.0.0, while BUILD_ENV remained empty).
+second
+podman build  --build-arg APP_VERSION="2.5.1"  --build-arg BUILD_ENV="production" -t arg-demo:custom .
+podman run --rm arg-demo:custom
+Building version: 2.5.1 for environment: production
+RUNTIME_VERSION: 2.5.1
+BUILD_ENV:
+

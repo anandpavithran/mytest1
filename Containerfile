@@ -1,8 +1,7 @@
 FROM registry.access.redhat.com/ubi8/ubi:8.0
 MAINTAINER ANANDPAVITHRAN <apavithr@redhat.com>
-LABEL "Demo of webserver1"
-ENV "VAR1=apple"
-ENV "VAR2=grape"
+ENV VAR1=apple
+ENV VAR2=grape
 #RUN yum install -y --no-docs --disableplugin=subscription-manager httpd
 RUN yum install -y httpd iputils bind-utils
 #RUN yum clean all --disableplugin=subscription-manager -y

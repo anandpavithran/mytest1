@@ -1,0 +1,17 @@
+# --- Stage 1: Builder ---
+FROM golang:1.23-alpine AS builder
+
+WORKDIR /app
+COPY main.go .
+
+# Compile a statically linked binary (no external OS libraries needed)
+RUN CGO_ENABLED=0 go build -o hello main.go
+
+
+# --- Stage 2: Final Runtime ---
+FROM scratch
+
+# Copy ONLY the compiled binary from the 'builder' stage
+COPY --from=builder /app/hello /hello
+
+CMD ["/hello"]

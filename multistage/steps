@@ -1,0 +1,3 @@
+podman build -f Containerfile.single -t app-single .
+podman build -f Containerfile.multi -t app-multi .
+podman images | grep app-
